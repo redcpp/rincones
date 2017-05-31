@@ -14,7 +14,23 @@ class Product(models.Model):
         verbose_name_plural = "Products"
 
     def __str__(self):
-        return self.title
+        return 'this is a product'
 
     def get_price(self):
         return self.price
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product)
+    image = models.ImageField(upload_to='products/images/')
+    featured = models.BooleanField(default=False)
+    thumbnail = models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    class Meta:
+        verbose_name = "ProductImage"
+        verbose_name_plural = "ProductImages"
+
+    def __str__(self):
+        return self.product.title
+
