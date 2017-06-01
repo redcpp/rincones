@@ -10,7 +10,13 @@ def home(request):
     return render(request, template, context)
 
 def all(request):
-    template ='products/all.html'
+    template = 'products/all.html'
     products = Product.objects.all()
     context = {'products': products}
+    return render(request, template, context)
+
+def single(request, slug):
+    template = 'products/single.html'
+    product = get_object_or_404(Product, slug=slug)
+    context = {'product': product}
     return render(request, template, context)
