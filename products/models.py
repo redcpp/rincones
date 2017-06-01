@@ -14,7 +14,7 @@ class Product(models.Model):
         verbose_name_plural = "Products"
 
     def __str__(self):
-        return 'this is a product'
+        return self.title
 
     def get_price(self):
         return self.price
@@ -23,7 +23,6 @@ class ProductImage(models.Model):
     product = models.ForeignKey(Product)
     image = models.ImageField(upload_to='products/images/')
     featured = models.BooleanField(default=False)
-    thumbnail = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 

@@ -1,16 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Product
 
 
 def home(request):
-    username_is = 'Juan' if request.user.is_authenticated() else 'Anon'
-    context = {'username_is': username_is}
     template = 'products/home.html'
+    featured = Product.objects.all()[:4]
+    context = {'featured': featured}
     return render(request, template, context)
 
 def all(request):
+    template ='products/all.html'
     products = Product.objects.all()
     context = {'products': products}
-    template ='products/all.html'
     return render(request, template, context)

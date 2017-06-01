@@ -1,0 +1,18 @@
+hr.clear {
+    clear: both;
+    border: 1px solid transparent;
+    height: 0px;
+}
+
+hr.big {
+    margin: 3rem auto;
+}
+
+.menu-title {
+    all: initial;
+    padding: 0;
+}
+
+.featured-products .thumbnail, .thumbnail * {
+    width: 100%;
+}
