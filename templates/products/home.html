@@ -30,13 +30,13 @@
         <div class="column">
             {% for item in product.productimage_set.all %}
             {% if item.featured %}
-                <a href="{{ product.get_absolute_url }}" class="thumbnail [radius]" >
+                <a href="{{ product.get_absolute_url }}" class="thumbnail" >
                     <img src="{{ item.image.url }}" alt="{{ item.image.url }}">
                 </a>
             {% endif %}
             {% endfor %}
             <h5>{{ product.title }}</h5>
-            <p>{{ product.price }}</p>
+            <p class="price">$ {{ product.price }}</p>
             <a href="" class="button expanded">Agregar al carrito</a>
         </div>
     {% endfor %}

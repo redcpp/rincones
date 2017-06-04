@@ -1,17 +1,17 @@
 <div class="top-bar">
-    <div class="top-bar-left">
-        <ul class="menu">
-            <li class="menu-text"><span><a href="/" class="menu-title">Rincones</a></span></li>
-            <li><a href="#">{{ username_is }}</a></li>
-            <li><a href="#">Two</a></li>
-        </ul>
-    </div>
-    <div class="top-bar-right">
-        <ul class="menu">
-            <li><a href="#">Three</a></li>
-            <li><a href="#">Four</a></li>
-            <li><a href="#">Five</a></li>
-            <li><a href="#">Six</a></li>
-        </ul>
+    <div class="row">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text"><span><a href="/" class="menu-title">Rincones</a></span></li>
+                <li><a href="/products">Productos</a></li>
+                <li><a href="/about">Acerca de</a></li>
+            </ul>
+        </div>
+        <form class="top-bar-right" role="search" action='/s/'>
+            <ul class="menu">
+                <li><input type="search" placeholder="Buscar producto" name="q"></li>
+                <li><button type="submit" class="button">Search</button></li>
+            </ul>
+        </form>
     </div>
 </div>

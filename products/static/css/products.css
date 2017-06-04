@@ -10,9 +10,23 @@ hr.big {
 
 .menu-title {
     all: initial;
+    font-weight: bold;
     padding: 0;
 }
 
 .featured-products .thumbnail, .thumbnail * {
     width: 100%;
+}
+
+.cantidad-compra {
+    color: #000;
+    text-align: center;
+}
+
+.price {
+    color: #003066;
+}
+
+.image-circle {
+    border-radius: 50%;
 }
