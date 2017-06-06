@@ -9,6 +9,7 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('products.urls', namespace='products')),
+    url(r'', include('carts.urls', namespace='carts')),
 ]
 
 if settings.DEBUG:

@@ -1,20 +1,135 @@
-<div class="callout large secondary">
-    <div class="row">
-        <div class="large-4 columns">
-            <h5>Grupo Rincones</h5>
-            <p>En Grupo Rincones buscamos traerte los mejores productos, sin importar en que rincón del mundo se encuentren</p>
-        </h4>
+{% load static %}
+
+<footer id="footer"><!--Footer-->
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="companyinfo">
+                        <h2><span>Epsilon</span>Zeta</h2>
+                        <p>En grupo rincones tenemos la visión de modernizar y conectar nuestro México con todo el mundo</p>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="col-sm-4">
+                        <div class="video-gallery text-center">
+                            <a href="">
+                                <div class="iframe-img">
+                                    <img src="{% static "images/home/iframe1.png" %}" alt="" />
+                                </div>
+                                <div class="overlay-icon">
+                                    <i class="fa fa-play-circle-o"></i>
+                                </div>
+                            </a>
+                            <p>Diego Said Anaya Mancilla</p>
+                            <h2>246831</h2>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="video-gallery text-center">
+                            <a href="">
+                                <div class="iframe-img">
+                                    <img src="{% static "images/home/iframe2.png" %}" alt="" />
+                                </div>
+                                <div class="overlay-icon">
+                                    <i class="fa fa-play-circle-o"></i>
+                                </div>
+                            </a>
+                            <p>Ludwing</p>
+                            <h2>000000</h2>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="video-gallery text-center">
+                            <a href="">
+                                <div class="iframe-img">
+                                    <img src="{% static "images/home/iframe3.png" %}" alt="" />
+                                </div>
+                                <div class="overlay-icon">
+                                    <i class="fa fa-play-circle-o"></i>
+                                </div>
+                            </a>
+                            <p>Derian</p>
+                            <h2>000000</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="address">
+                        <img src="{% static "images/home/map.png" %}" alt="" />
+                        <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="large-3 large-offset-2 columns">
-        <ul class="menu vertical">
-            <li><a href="">Email</a></li>
-            <li><a href="">Teléfono</a></li>
-        </ul>
+
+    <div class="footer-widget">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>Categorías</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="">Mujer</a></li>
+                            <li><a href="">Niños</a></li>
+                            <li><a href="">Hombre</a></li>
+                            <li><a href="">Tecnología</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>Servicio</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="">Ayuda</a></li>
+                            <li><a href="">Contacto</a></li>
+                            <li><a href="">Preguntas frecuentes</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>Acerca de</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="">Copyright</a></li>
+                            <li><a href="">Bolsa de trabajo</a></li>
+                            <li><a href="">Información general</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>Políticas</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="">Términos de uso</a></li>
+                            <li><a href="">Política de privacidad</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-sm-offset-1">
+                    <div class="single-widget">
+                        <h2>Promociones</h2>
+                        <form action="" class="searchform">
+                            <input type="text" placeholder="Your email address" />
+                            <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+                            <p>Recibe las mejores promociones <br />para celebrar momentos especiales</p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-    <div class="large-3 columns">
-        <ul class="menu vertical">
-            <li><a href="">Facebook</a></li>
-            <li><a href="">Twitter</a></li>
-        </ul>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <p class="text-center">Copyright © 2017 Epsilon Zeta. Todos los derechos reservados.</p>
+            </div>
+        </div>
     </div>
-</div>
+
+</footer><!--/Footer-->
