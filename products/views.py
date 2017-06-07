@@ -15,7 +15,7 @@ def search(request):
         template = 'products/results.html'
         return render(request, template, context)
     else:
-        return redirect('/')
+        return redirect('products:home')
 
 
 def home(request):

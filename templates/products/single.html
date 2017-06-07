@@ -50,10 +50,10 @@
                                 <label for="cantidad">Cantidad</label>
                                 <input id="cantidad" type="number" min="1" value="1" class="text-center input-lg">
                             </div>
-                            <button class="btn btn-primary btn-block btn-lg">
+                            <a href="{% url "carts:update_cart" product.slug %}" class="btn btn-primary btn-block btn-lg">
                                 <i class="fa fa-shopping-cart"></i>
                                 Agregar al carrito
-                            </button>
+                            </a>
                         </form>
                     </div>
                 </div><!--/product-details-->

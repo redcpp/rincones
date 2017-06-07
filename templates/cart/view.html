@@ -1,27 +1,63 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block content %}
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+                <li><a href="{% url "products:home" %}">Inicio</a></li>
+                <li class="active">Carrito de compras</li>
+            </ol>
+        </div>
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Item</td>
+                        <td class="description">Nombre</td>
+                        <td class="precio">Price</td>
+                        <td class="quantity">Quantity</td>
+                        <td class="total">Total</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in cart.products.all %}
+                    <tr>
+                        <td class="cart_product">
+                        {% for item in product.productimage_set.all %}
+                        {% if item.featured %}
+                            <a href=""><img src="{{ item.image.url }}" alt=""></a>
+                        {% endif %}
+                        {% endfor %}
+                        </td>
+                        <td class="cart_description">
+                            <h4><a href="{{ product.get_absolute_path }}">{{ product.title }}</a></h4>
+                            <p>Web ID: 1089772</p>
+                        </td>
+                        <td class="cart_price">
+                            <p>${{ product.price }}</p>
+                        </td>
+                        <td class="cart_quantity">
+                            <div class="cart_quantity_button">
+                                <a class="cart_quantity_down" href=""> - </a>
+                                <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+                                <a class="cart_quantity_up" href=""> + </a>
+                            </div>
+                        </td>
+                        <td class="cart_total">
+                            <p class="cart_total_price">${{ product.price }}</p>
+                        </td>
+                        <td class="cart_delete">
+                            <a class="cart_quantity_delete" href="{% url "carts:update_cart" product.slug %}"><i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
 
-<div class='col-sm-8 col-sm-offset-2'>
-
-    <table class='table'>
-        <thead>
-            <th>Item</th>
-            <th>Price</th>
-        </thead>
-        <tfoot>
-            <tr>
-                <td></td>
-                <td>Total: {{ cart.total }}</td>
-            </tr>
-        </tfoot>
-        {% for item in cart.products.all %}
-
-        <tr><td>{{ item }}</td><td>{{ item.price }}</td></tr>
-        {% endfor %}
-
-    </table>
-
-</div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section> <!--/#cart_items-->
 {% endblock %}
