@@ -1606,7 +1606,6 @@ h2.title {
   font-family: 'Roboto',sans-serif;
   font-size: 20px;
   font-weight: normal;
-
 }
 
 #cart_items .cart_info .cart_description p {
@@ -1621,13 +1620,26 @@ h2.title {
 
 
 #cart_items .cart_info .cart_total_price {
-  color: #e51400;
+  color: #6a00ff;
   font-size: 24px;
 }
 
 .cart_product {
   display: block;
-  margin: 15px -70px 10px 25px;
+  text-align: center;
+}
+
+.cart_product img {
+  height: 100px;
+  margin: auto 20px;
+}
+
+.cart_price {
+  text-align: center;
+}
+
+.cart_quantity {
+  text-align: center;
 }
 
 .cart_quantity_button a {
@@ -1636,16 +1648,13 @@ h2.title {
   display: inline-block;
   font-size: 16px;
   height: 28px;
-  overflow: hidden;
   text-align: center;
   width: 35px;
-  float: left;
 }
 
 
 .cart_quantity_input {
   color: #333;
-  float: left;
   font-size: 16px;
   text-align: center;
   font-family: 'Roboto',sans-serif;
@@ -2536,4 +2545,16 @@ h2.title {
 
 #images .carousel-inner .item {
   padding-left: 0;
+}
+
+hr.clear {
+  border: none;
+}
+
+hr.big {
+  margin: 50px auto;
+}
+
+.cart_row h1, h2, h3, h4, p {
+  margin: 0;
 }

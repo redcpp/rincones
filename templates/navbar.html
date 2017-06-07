@@ -37,9 +37,22 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href=""><i class="fa fa-user"></i> Cuenta</a></li>
+                            <li><a href="">
+                                {% if user.is_authenticated %}
+                                    <i class="fa fa-user"></i> Mi cuenta
+                                {% else %}
+                                    <i class="fa fa-user"></i> Iniciar sesión
+                                {% endif %}
+                            </a></li>
                             <li><a href=""><i class="fa fa-crosshairs"></i> Historial</a></li>
-                            <li><a href="{% url "carts:cart" %}"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
+                            <li><a href="{% url "carts:cart" %}">
+                                <i class="fa fa-shopping-cart"></i> Carrito
+                                {% if not request.session.items_total %}
+                                    (0)
+                                {% else %}
+                                    ({{ request.session.items_total }})
+                                {% endif%}
+                            </a></li>
                             <li><a href=""><i class="fa fa-lock"></i> Iniciar sesión</a></li>
                         </ul>
                     </div>

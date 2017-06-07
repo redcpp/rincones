@@ -11,7 +11,7 @@
             </div>
 
             <div class="col-sm-9 padding-right">
-            <div class="product-details"><!--product-details-->
+                <div class="product-details"><!--product-details-->
                     <div class="col-sm-7">
                         <div id="images" class="carousel slide" data-ride="carousel">
                             <!-- Wrapper for slides -->
@@ -45,15 +45,15 @@
                             <span class="pull-right">${{ product.price|intcomma }}</span>
                         </h2>
                         <hr>
-                        <form action="" class="agregar-carrito">
+                        <form action="{% url "carts:update_cart" product.slug %}" class="agregar-carrito">
                             <div class="form-group text-center">
                                 <label for="cantidad">Cantidad</label>
-                                <input id="cantidad" type="number" min="1" value="1" class="text-center input-lg">
+                                <input name="qty" id="cantidad" type="number" min="1" value="1" class="text-center input-lg">
                             </div>
-                            <a href="{% url "carts:update_cart" product.slug %}" class="btn btn-primary btn-block btn-lg">
+                            <button type="submit" class="btn btn-primary btn-block btn-lg">
                                 <i class="fa fa-shopping-cart"></i>
                                 Agregar al carrito
-                            </a>
+                            </button>
                         </form>
                     </div>
                 </div><!--/product-details-->

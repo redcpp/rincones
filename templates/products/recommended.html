@@ -1,3 +1,5 @@
+{% load humanize %}
+
 <div class="recommended_items">
     <h2 class="title text-center">Recomendados</h2>
 
@@ -11,8 +13,8 @@
                 {% endif %}
                 {% endfor %}
                 <h2>{{ product.title }}</h2>
-                <p>{{ product.price }}</p>
-                <a href="{% url "carts:update_cart" product.slug %}" class="btn btn-default"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a>
+                <p>{{ product.price|intcomma }}</p>
+                <a href="{% url "carts:update_cart" product.slug %}?qty=1" class="btn btn-default"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a>
             </div>
         </div>
         {% endfor %}

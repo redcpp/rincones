@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block content %}
 
@@ -24,8 +25,8 @@
                             {% endif %}
                             {% endfor %}
                             <h2>{{ product.title }}</h2>
-                            <p>${{ product.price }}</p>
-                            <a href="{% url "carts:update_cart" product.slug %}" class="btn btn-default"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a>
+                            <p>${{ product.price|intcomma }}</p>
+                            <a href="{% url "carts:update_cart" product.slug %}?qty=1" class="btn btn-default"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a>
                         </div>
                     </div>
                     {% endfor %}
