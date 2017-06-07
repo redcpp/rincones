@@ -1,0 +1,20 @@
+<div class="recommended_items">
+    <h2 class="title text-center">Recomendados</h2>
+
+    <div class="row equal">
+        {% for product in recomendados %}
+        <div class="col-sm-4">
+            <div class="text-center">
+                {% for item in product.productimage_set.all %}
+                {% if item.featured %}
+                <a href="{{ product.get_absolute_url }}"><img src="{{ item.image.url }}" alt="" class="img-responsive center-block"></a>
+                {% endif %}
+                {% endfor %}
+                <h2>{{ product.title }}</h2>
+                <p>{{ product.price }}</p>
+                <a href="" class="btn btn-default"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

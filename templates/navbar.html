@@ -38,9 +38,9 @@
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             <li><a href=""><i class="fa fa-user"></i> Cuenta</a></li>
-                            <li><a href=""><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="{% url "carts:cart" %}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href=""><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href=""><i class="fa fa-crosshairs"></i> Historial</a></li>
+                            <li><a href="{% url "carts:cart" %}"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
+                            <li><a href=""><i class="fa fa-lock"></i> Iniciar sesión</a></li>
                         </ul>
                     </div>
                 </div>
@@ -62,15 +62,16 @@
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="{% url "products:home" %}" class="active">Home</a></li>
-                            <li class="dropdown"><a href="{% url "products:products" %}">Shop<i class="fa fa-angle-down"></i></a>
+                            <li><a href="{% url "products:home" %}" class="active">Inicio</a></li>
+                            <li class="dropdown"><a href="{% url "products:products" %}">Tienda<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="products/">All</a></li>
-                                    <li><a href="">Men</a></li>
-                                    <li><a href="">Kids</a></li>
+                                    <li><a href="products/">Todo</a></li>
+                                    <li><a href="">Tecnología</a></li>
+                                    <li><a href="">Deportes</a></li>
+                                    <li><a href="">Juegos</a></li>
                                 </ul>
                             </li>
-                            <li><a href="">Contact</a></li>
+                            <li><a href="">Contacto</a></li>
                         </ul>
                     </div>
                 </div>

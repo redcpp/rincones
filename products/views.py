@@ -19,8 +19,9 @@ def search(request):
 
 
 def home(request):
-    featured = Product.objects.all()[:4]
-    context = {'featured': featured}
+    destacados = Product.objects.all()[:6]
+    recomendados = Product.objects.all()[:3]
+    context = {'destacados': destacados, 'recomendados': recomendados}
     template = 'products/home.html'
     return render(request, template, context)
 
@@ -33,6 +34,7 @@ def all(request):
 def single(request, slug):
     product = get_object_or_404(Product, slug=slug)
     images = ProductImage.objects.filter(product=product)
-    context = {'product': product, 'images': images}
+    recomendados = Product.objects.exclude(id=product.id)[:3]
+    context = {'product': product, 'images': images, 'recomendados': recomendados}
     template = 'products/single.html'
     return render(request, template, context)
