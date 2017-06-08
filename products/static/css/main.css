@@ -1652,11 +1652,17 @@ h2.title {
   width: 35px;
 }
 
+.cart_quantity_button form {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
 
 .cart_quantity_input {
   color: #333;
   font-size: 16px;
   text-align: center;
+  display: inline-block;
   font-family: 'Roboto',sans-serif;
 
 }

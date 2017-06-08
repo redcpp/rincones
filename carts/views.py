@@ -21,6 +21,8 @@ def view(request):
 
 def update_cart(request, slug):
     request.session.set_expiry(120000)
+
+    # Get Quantity
     try:
         qty = request.GET.get('qty')
         update_qty = True
@@ -28,11 +30,7 @@ def update_cart(request, slug):
         qty = None
         update_qty = False
 
-    try:
-        attr = request.GET.get('attr')
-    except Exception as e:
-        attr = None
-
+    # Create or retrieve cart
     try:
         the_id = request.session['cart_id']
     except Exception as e:
@@ -43,25 +41,23 @@ def update_cart(request, slug):
 
     cart = Cart.objects.get(id=the_id)
 
+    # Retrieve product
     try:
         product = Product.objects.get(slug=slug)
     except Exception as e:
         pass
 
+    # Update cart_item
     cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
 
     if update_qty and qty:
-        if int(qty) == 0:
+        if int(qty) <= 0:
             cart_item.delete()
         else:
             cart_item.quantity = qty
             cart_item.save()
 
-    '''if not cart_item in cart.items.all():
-        cart.items.add(cart_item)
-    else:
-        cart.items.remove(cart_item)'''
-
+    # Update cart
     request.session['items_total'] = cart.cartitem_set.count()
     print(request.session['items_total'])
     cart.save()

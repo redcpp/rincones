@@ -12,8 +12,8 @@
             </ol>
         </div>
         {% if empty %}
-           <h1 class="text-center">{{ empty_message }}</h1>
-           <hr class="clear big">
+        <h1 class="text-center">{{ empty_message }}</h1>
+        <hr class="clear big">
         {% else %}
         <div class="table-responsive cart_info">
             <table class="table table-condensed text-center">
@@ -31,11 +31,11 @@
                     {% for item in cart.cartitem_set.all %}
                     <tr class="cart_row">
                         <td class="cart_product">
-                        {% for image in item.product.productimage_set.all %}
-                        {% if image.featured %}
+                            {% for image in item.product.productimage_set.all %}
+                            {% if image.featured %}
                             <a href="{{ item.product.get_absolute_url }}"><img src="{{ image.image.url }}" alt=""></a>
-                        {% endif %}
-                        {% endfor %}
+                            {% endif %}
+                            {% endfor %}
                         </td>
                         <td class="cart_description">
                             <h4>{{ item }}</h4>
@@ -45,8 +45,12 @@
                         </td>
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
+                                {% if item.quantity > 1 %}
                                 <a class="cart_quantity_down" href="{% url "carts:update_cart" item.product.slug %}?qty={{ item.quantity|add:"-1" }}"> - </a>
-                                <input class="cart_quantity_input" type="text" name="quantity" value="{{ item.quantity }}" autocomplete="off" size="2">
+                                {% endif %}
+                                <form action="{% url "carts:update_cart" item.product.slug %}">
+                                    <input class="cart_quantity_input" type="text" name="qty" value="{{ item.quantity }}" autocomplete="off" size="2">
+                                </form>
                                 <a class="cart_quantity_up" href="{% url "carts:update_cart" item.product.slug %}?qty={{ item.quantity|add:"1" }}"> + </a>
                             </div>
                         </td>
@@ -65,4 +69,5 @@
         {% endif %}
     </div>
 </section> <!--/#cart_items-->
+
 {% endblock %}

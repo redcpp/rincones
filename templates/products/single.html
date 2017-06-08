@@ -45,10 +45,11 @@
                             <span class="pull-right">${{ product.price|intcomma }}</span>
                         </h2>
                         <hr>
+                        <p>{{ product.description }}</p>
                         <form action="{% url "carts:update_cart" product.slug %}" class="agregar-carrito">
                             <div class="form-group text-center">
                                 <label for="cantidad">Cantidad</label>
-                                <input name="qty" id="cantidad" type="number" min="1" value="1" class="text-center input-lg">
+                                <input name="qty" id="cantidad" type="number" autocomplete="off" min="1" value="1" class="text-center input-sm">
                             </div>
                             <button type="submit" class="btn btn-primary btn-block btn-lg">
                                 <i class="fa fa-shopping-cart"></i>
