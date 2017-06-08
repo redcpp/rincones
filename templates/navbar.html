@@ -39,21 +39,19 @@
                         <ul class="nav navbar-nav">
                             <li><a href="">
                                 {% if user.is_authenticated %}
-                                    <i class="fa fa-user"></i> Mi cuenta
+                                <i class="fa fa-user"></i> Mi cuenta
                                 {% else %}
-                                    <i class="fa fa-user"></i> Iniciar sesión
+                                <i class="fa fa-user"></i> Iniciar sesión
                                 {% endif %}
                             </a></li>
-                            <li><a href=""><i class="fa fa-crosshairs"></i> Historial</a></li>
                             <li><a href="{% url "carts:cart" %}">
                                 <i class="fa fa-shopping-cart"></i> Carrito
                                 {% if not request.session.items_total %}
-                                    (0)
+                                (0)
                                 {% else %}
-                                    ({{ request.session.items_total }})
+                                ({{ request.session.items_total }})
                                 {% endif%}
                             </a></li>
-                            <li><a href=""><i class="fa fa-lock"></i> Iniciar sesión</a></li>
                         </ul>
                     </div>
                 </div>
@@ -78,10 +76,10 @@
                             <li><a href="{% url "products:home" %}" class="active">Inicio</a></li>
                             <li class="dropdown"><a href="{% url "products:products" %}">Tienda<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="products/">Todo</a></li>
-                                    <li><a href="">Tecnología</a></li>
-                                    <li><a href="">Deportes</a></li>
-                                    <li><a href="">Juegos</a></li>
+                                    <li><a href="{% url "products:products" %}">Todo</a></li>
+                                    {% for category in categories %}
+                                    <li><a href="{% url "products:products" %}?slug={{ category.slug }}">{{ category.title }}</a></li>
+                                    {% endfor %}
                                 </ul>
                             </li>
                             <li><a href="">Contacto</a></li>
@@ -89,8 +87,8 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <form class="search_box pull-right" action="{% url "products:search" %}">
-                        <input type="text" placeholder="Buscar" name="q" >
+                    <form class="search_box pull-right" action="{% url "products:products" %}">
+                        <input type="text" placeholder="Buscar" name="q" required>
                     </form>
                 </div>
             </div>

@@ -1,33 +1,41 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .models import Product, ProductImage
-
-
-def search(request):
-    try:
-        q = request.GET.get('q')
-    except:
-        q = None
-
-    if q:
-        products = Product.objects.filter(title__icontains=q)
-        context = {'query': q, 'products': products}
-        template = 'products/results.html'
-        return render(request, template, context)
-    else:
-        return redirect('products:home')
+from .models import Product, ProductImage, Category
 
 
 def home(request):
     destacados = Product.objects.all()[:6]
     recomendados = Product.objects.all()[:3]
-    context = {'destacados': destacados, 'recomendados': recomendados}
+    categories = Category.objects.all()
+    context = {'destacados': destacados, 'recomendados': recomendados, 'categories': categories}
     template = 'products/home.html'
     return render(request, template, context)
 
-def all(request):
-    products = Product.objects.all()
-    context = {'products': products}
+def list(request):
+    try:
+        q = request.GET.get('q')
+    except:
+        q = None
+
+    try:
+        slug = request.GET.get('slug')
+    except:
+        slug = None
+
+    if q:
+        products = Product.objects.filter(title__icontains=q)
+        location = q
+    elif slug:
+        category = get_object_or_404(Category, slug=slug)
+        products = Product.objects.filter(category=category)
+        location = slug
+    else:
+        category = None
+        products = Product.objects.all()
+        location = 'Todo'
+
+    categories = Category.objects.all()
+    context = {'products': products, 'categories': categories, 'location': location}
     template = 'products/all.html'
     return render(request, template, context)
 

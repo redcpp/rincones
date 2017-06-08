@@ -1,11 +1,40 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
 
 {% block content %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                {% include 'products/left-sidebar.html' %}
+            </div>
 
-<ul>
-{% for product in products %}
-<li>{{ product.title }} {{ product.price }}</li>
-{% endfor %}
-</ul>
+            <div class="col-sm-9 padding-right">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="{% url "products:home" %}">Inicio</a></li>
+                        <li class="active">{{ location|title }}</li>
+                    </ol>
+                </div>
+                {% for product in products %}
+                <div class="col-sm-4">
+                    <div class="text-center">
+                        {% for item in product.productimage_set.all %}
+                        {% if item.featured %}
+                        <a href="{{ product.get_absolute_url }}"><img src="{{ item.image.url }}" alt="" class="img-responsive center-block" /></a>
+                        {% endif %}
+                        {% endfor %}
+                        <h2>{{ product.title }}</h2>
+                        <p>${{ product.price|intcomma }}</p>
+                        <a href="{% url "carts:update_cart" product.slug %}?qty=1" class="btn btn-default"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
 
+        </div>
+    </div>
+</div>
+</section>
 {% endblock content %}

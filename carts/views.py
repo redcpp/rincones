@@ -59,6 +59,5 @@ def update_cart(request, slug):
 
     # Update cart
     request.session['items_total'] = cart.cartitem_set.count()
-    print(request.session['items_total'])
     cart.save()
     return redirect('carts:cart')
