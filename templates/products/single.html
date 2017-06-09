@@ -30,12 +30,14 @@
                             </div>
 
                             <!-- Controls -->
+                            {% if images.count > 1 %}
                             <a class="left item-control" href="#images" data-slide="prev">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                             <a class="right item-control" href="#images" data-slide="next">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+                            {% endif %}
                         </div>
 
                     </div>

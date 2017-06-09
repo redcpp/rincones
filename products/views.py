@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
+import random
 
 from .models import Product, ProductImage, Category
 
 
 def home(request):
-    destacados = Product.objects.all()[:6]
-    recomendados = Product.objects.all()[:3]
+    products = random.sample(set(Product.objects.all()), 6)
+    destacados = products[:-3]
+    recomendados = products[-3:]
     categories = Category.objects.all()
     context = {'destacados': destacados, 'recomendados': recomendados, 'categories': categories}
     template = 'products/home.html'
@@ -42,7 +44,7 @@ def list(request):
 def single(request, slug):
     product = get_object_or_404(Product, slug=slug)
     images = ProductImage.objects.filter(product=product)
-    recomendados = Product.objects.exclude(id=product.id)[:3]
+    recomendados = random.sample(set(Product.objects.exclude(id=product.id)), 3)
     categories = Category.objects.all()
     context = {'product': product, 'images': images, 'recomendados': recomendados, 'categories': categories}
     template = 'products/single.html'
