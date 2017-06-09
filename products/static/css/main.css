@@ -2564,3 +2564,11 @@ hr.big {
 .cart_row h1, h2, h3, h4, p {
   margin: 0;
 }
+
+.listing-price {
+  margin: 5px auto;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+  margin: auto;
+}

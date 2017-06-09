@@ -43,6 +43,7 @@ def single(request, slug):
     product = get_object_or_404(Product, slug=slug)
     images = ProductImage.objects.filter(product=product)
     recomendados = Product.objects.exclude(id=product.id)[:3]
-    context = {'product': product, 'images': images, 'recomendados': recomendados}
+    categories = Category.objects.all()
+    context = {'product': product, 'images': images, 'recomendados': recomendados, 'categories': categories}
     template = 'products/single.html'
     return render(request, template, context)
