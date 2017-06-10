@@ -2559,7 +2559,7 @@ hr.big {
   margin: 50px auto;
 }
 
-.cart_row h1, h2, h3, h4, p {
+.cart_row h1, .cart_row h2, .cart_row h3, .cart_row h4, .cart_row p {
   margin: 0;
 }
 

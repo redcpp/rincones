@@ -10,25 +10,25 @@ class ProductImageInline(admin.TabularInline):
 
 class ProductAdmin(admin.ModelAdmin):
     date_hierarchy = 'timestamp'
-    search_fields = ['title', 'description']
-    list_display = ['title', 'price', 'active', 'updated']
-    list_editable = ['price', 'active']
-    list_filter = ['category', 'active']
-    readonly_fields = ['updated', 'timestamp']
+    search_fields = ('title', 'description')
+    list_display = ('title', 'price', 'active', 'updated')
+    list_editable = ('price', 'active')
+    list_filter = ('category', 'active')
+    readonly_fields = ('updated', 'timestamp')
     prepopulated_fields = {'slug': ('title',)}
-    inlines = [
+    inlines = (
         ProductImageInline,
-    ]
+    )
     class Meta:
         model = Product
 
 class CategoryAdmin(admin.ModelAdmin):
-    search_fields = ['title']
-    list_display = ['title', 'active', 'updated']
-    list_editable = ['active']
-    list_filter = ['active']
+    search_fields = ('title',)
+    list_display = ('title', 'active', 'updated')
+    list_editable = ('active',)
+    list_filter = ('active',)
     prepopulated_fields = {'slug': ('title',)}
-    readonly_fields = ['updated', 'timestamp']
+    readonly_fields = ('updated', 'timestamp')
     class Meta:
         model = Category
 

@@ -32,6 +32,7 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
+    @property
     def get_price(self):
         return self.price
 
@@ -51,4 +52,3 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return self.product.title
-

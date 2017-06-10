@@ -10,10 +10,9 @@
                 <li class="active">Carrito de compras</li>
             </ol>
         </div>
-
         {% if empty %}
         <h1 class="text-center">{{ empty_message }}</h1>
-        {# <hr class="clear big"> #}
+        <hr class="clear big">
         {% else %}
         {% include 'cart/cart_table.html' %}
         {% endif %}
@@ -31,7 +30,7 @@
                     <li>Total <span>${{ cart.total|intcomma }}</span></li>
                 </ul>
                 <hr class="clear">
-                <a class="btn btn-success btn-block" href="">Proceder al pago</a>
+                <a class="btn btn-primary btn-block" href="{% url "orders:checkout" %}"><b>Proceder al pago</b></a>
             </div>
         </div>
     </div>
