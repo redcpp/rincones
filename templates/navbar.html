@@ -37,14 +37,23 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="{% url "carts:cart" %}">
-                                <i class="fa fa-shopping-cart"></i> Carrito
-                                {% if not request.session.items_total %}
-                                (0)
-                                {% else %}
-                                ({{ request.session.items_total }})
-                                {% endif%}
-                            </a></li>
+                            <li>
+                                <a href="{% url "carts:cart" %}">
+                                    <i class="fa fa-shopping-cart"></i> Carrito
+                                    {% if not request.session.items_total %}
+                                    (0)
+                                    {% else %}
+                                    ({{ request.session.items_total }})
+                                    {% endif%}
+                                </a>
+                            </li>
+                            {% if user.is_authenticated %}
+                            <li><a href=""><i class="fa fa-list"></i>Historial</a></li>
+                            <li><a href=""><i class="fa fa-user"></i>Mi cuenta</a></li>
+                            <li><a href="{% url "logout" %}"><i class="fa fa-sign-out"></i>Cerrar sesión</a></li>
+                            {% else %}
+                            <li><a href="{% url "login" %}"><i class="fa fa-user"></i>Iniciar sesión</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
