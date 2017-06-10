@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from products.models import Product
+from products.models import Product, Category
 from .models import Cart, CartItem
 
 
@@ -16,6 +16,8 @@ def view(request):
         empty_message = 'Tu carrito está vacio, agrega algunas compras.'
         context = {'empty': True, 'empty_message': empty_message}
 
+    categories = Category.objects.all()
+    context['categories'] = categories
     template = 'cart/view.html'
     return render(request, template, context)
 

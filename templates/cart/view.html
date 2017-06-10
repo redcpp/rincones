@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load static %}
 {% load humanize %}
 
 {% block content %}
@@ -11,63 +10,32 @@
                 <li class="active">Carrito de compras</li>
             </ol>
         </div>
+
         {% if empty %}
         <h1 class="text-center">{{ empty_message }}</h1>
-        <hr class="clear big">
+        {# <hr class="clear big"> #}
         {% else %}
-        <div class="table-responsive cart_info">
-            <table class="table table-condensed text-center">
-                <thead>
-                    <tr class="cart_menu">
-                        <td class="image">Imagen</td>
-                        <td class="description">Nombre</td>
-                        <td class="precio">Precio</td>
-                        <td class="quantity">Cantidad</td>
-                        <td class="total">Total</td>
-                        <td></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in cart.cartitem_set.all %}
-                    <tr class="cart_row">
-                        <td class="cart_product">
-                            {% for image in item.product.productimage_set.all %}
-                            {% if image.featured %}
-                            <a href="{{ item.product.get_absolute_url }}"><img src="{{ image.image.url }}" alt=""></a>
-                            {% endif %}
-                            {% endfor %}
-                        </td>
-                        <td class="cart_description">
-                            <h4>{{ item }}</h4>
-                        </td>
-                        <td class="cart_price">
-                            <p>${{ item.product.price|intcomma }}</p>
-                        </td>
-                        <td class="cart_quantity">
-                            <div class="cart_quantity_button">
-                                {% if item.quantity > 1 %}
-                                <a class="cart_quantity_down" href="{% url "carts:update_cart" item.product.slug %}?qty={{ item.quantity|add:"-1" }}"> - </a>
-                                {% endif %}
-                                <form action="{% url "carts:update_cart" item.product.slug %}">
-                                    <input class="cart_quantity_input" type="text" name="qty" value="{{ item.quantity }}" autocomplete="off" size="2">
-                                </form>
-                                <a class="cart_quantity_up" href="{% url "carts:update_cart" item.product.slug %}?qty={{ item.quantity|add:"1" }}"> + </a>
-                            </div>
-                        </td>
-                        <td class="cart_total">
-                            <p class="cart_total_price">${{ item.total_cost|intcomma }}</p>
-                        </td>
-                        <td class="cart_delete">
-                            <a class="cart_quantity_delete" href="{% url "carts:update_cart" item.product.slug %}?qty=0"><i class="fa fa-times"></i></a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-
-                </tbody>
-            </table>
-        </div>
+        {% include 'cart/cart_table.html' %}
         {% endif %}
     </div>
 </section> <!--/#cart_items-->
+
+{% if not empty %}
+<section id="do_action">
+    <div class="container">
+    <div class="col-sm-6 col-centered">
+            <div class="total_area">
+                <ul>
+                    <li>Subtotal <span>${{ cart.total|intcomma }}</span></li>
+                    <li>Costo de envío <span>$0</span></li>
+                    <li>Total <span>${{ cart.total|intcomma }}</span></li>
+                </ul>
+                <hr class="clear">
+                <a class="btn btn-success btn-block" href="">Proceder al pago</a>
+            </div>
+        </div>
+    </div>
+</section><!--/#do_action-->
+{% endif %}
 
 {% endblock %}
