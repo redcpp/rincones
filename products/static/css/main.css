@@ -2534,12 +2534,6 @@ h2.title {
 ********* My CSS **********
 **************************/
 
-.equal {
-  display: flex;
-  display: -webkit-flex;
-  flex-wrap: wrap;
-}
-
 .price {
   color: #131418;
   font-size: 2.5rem;
@@ -2571,4 +2565,12 @@ hr.big {
 
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
   margin: auto;
+}
+
+.home-carousel a.btn {
+  margin-top: 10px;
+}
+
+.product-display a.btn {
+  margin-bottom: 25px;
 }

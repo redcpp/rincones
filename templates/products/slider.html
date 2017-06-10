@@ -11,10 +11,23 @@
                         <li data-target="#slider-carousel" data-slide-to="2"></li>
                     </ol>
 
-                    <div class="carousel-inner">
+                    <div class="carousel-inner home-carousel">
+
                         <div class="item active">
                             <div class="col-sm-6">
-                                <h1><span>Mac</span>book</h1>
+                                <h1><span>Entre</span>tenimiento</h1>
+                                <h2>Vive en tu mundo, juega en el nuestro</h2>
+                                <p>Juegos para todas las consolas modernas.</p>
+                                <a href="{% url "products:products" %}?slug=entretenimiento" class="btn btn-info">Ver más</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="{% static "images/home/games.png" %}" class="girl img-responsive" alt="" />
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>Tec</span>nología</h1>
                                 <h2>Poder y estilo</h2>
                                 <p>Compra los mejores y más nuevos productos en tecnología.</p>
                                 <a href="{% url "products:products" %}?slug=tecnologia" class="btn btn-info">Ver más</a>
@@ -23,27 +36,16 @@
                                 <img src="{% static "images/home/laptop.png" %}" class="girl img-responsive" alt="" />
                             </div>
                         </div>
+
                         <div class="item">
                             <div class="col-sm-6">
-                                <h1><span>Deportes</span></h1>
+                                <h1><span>De</span>portes</h1>
                                 <h2>Mi competencia más fuerte soy yo</h2>
                                 <p>Calzado, ropa y accesorios para campeones.</p>
                                 <a href="{% url "products:products" %}?slug=deportes" class="btn btn-info">Ver más</a>
                             </div>
                             <div class="col-sm-6">
                                 <img src="{% static "images/home/shoe.png" %}" class="girl img-responsive" alt="" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="col-sm-6">
-                                <h1><span>Video</span>juegos</h1>
-                                <h2>Vive en tu mundo, juega en el nuestro</h2>
-                                <p>Juegos para todas las consolas modernas.</p>
-                                <a href="{% url "products:products" %}?slug=tecnologia" class="btn btn-info">Ver más</a>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="{% static "images/home/games.png" %}" class="girl img-responsive" alt="" />
                             </div>
                         </div>
 

@@ -3,9 +3,8 @@
 <div class="recommended_items">
     <h2 class="title text-center">Recomendados</h2>
 
-    <div class="row equal">
         {% for product in recomendados %}
-        <div class="col-sm-4">
+        <div class="col-sm-4 product-display">
             <div class="text-center">
                 {% for item in product.productimage_set.all %}
                 {% if item.featured %}
@@ -18,5 +17,4 @@
             </div>
         </div>
         {% endfor %}
-    </div>
 </div>
