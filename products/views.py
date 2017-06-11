@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import JsonResponse
+from django.core import serializers
 import random
 
 from .models import Product, ProductImage, Category
@@ -54,3 +56,9 @@ def contact(request):
     context = {}
     template = 'products/contact.html'
     return render(request, template, context)
+
+def categories(request):
+    categories = Category.objects.all()
+    category_list = serializers.serialize('json', categories)
+    data = {'categories': category_list}
+    return JsonResponse(data)

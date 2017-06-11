@@ -22,8 +22,7 @@ def checkout(request):
         new_order.order_id = hash(str(new_order.user) + str(new_order.cart))
         new_order.save()
 
-    categories = Category.objects.all()
-    context = {'order': new_order, 'categories': categories}
+    context = {'order': new_order}
     template = 'orders/checkout.html'
     return render(request, template, context)
 
