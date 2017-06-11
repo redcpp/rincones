@@ -10,6 +10,7 @@ String.prototype.format = function()
 };
 
 $(document).ready(function () {
+    var products_url = $("#categories").attr('products-url');
     $.ajax({
         url: $("#categories").attr('data-categories-url'),
         dataType: 'json',
@@ -18,7 +19,7 @@ $(document).ready(function () {
                 var data_json = $.parseJSON(data.categories);
                 for (var i = 0; i < data_json.length; i++) {
                     var fields = data_json[i].fields;
-                    var text = '<li><a href="{% url "products:products" %}?slug={0}">{1}</a></li>'.format(fields.slug, fields.title);
+                    var text = '<li><a href="{0}?slug={1}">{2}</a></li>'.format(products_url, fields.slug, fields.title);
                     $("#categories").append(text);
                 }
             }

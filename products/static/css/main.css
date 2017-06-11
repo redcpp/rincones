@@ -1560,7 +1560,7 @@ h2.title {
 }
 
 #cart_items .cart_info {
-  border: 1px solid #E6E4DF;
+  border: 1px solid #777;
   margin-bottom: 50px
 }
 
@@ -1587,7 +1587,7 @@ h2.title {
 }
 
 .cart_info table tr td {
-  border-top: 0 none;
+  padding: 10px auto;
   vertical-align: inherit;
 }
 
@@ -1668,22 +1668,16 @@ h2.title {
 }
 
 
-.cart_delete  {
-  display: block;
-  margin-right: -12px;
-  overflow: hidden;
-}
-
-
 .cart_delete a {
   background:#F0F0E9;
-  color: #FFFFFF;
+  color: #111;
   padding: 5px 7px;
   font-size: 16px
 }
 
 .cart_delete a:hover {
-  background:#e51400
+  background: #a20025;
+  color: #000;
 }
 
 
@@ -1711,7 +1705,7 @@ h2.title {
 }
 
 #do_action .total_area, #do_action .chose_area {
-  border: 1px solid #E6E4DF;
+  border: 1px solid #777;
   color: #333;
   padding: 30px 25px;
   margin-bottom: 25px;
@@ -2613,4 +2607,26 @@ hr.big {
   border-radius: 5px;
   background-color: #fff;
   white-space: pre-line;
+}
+
+tr.inverted {
+  background-color: #111;
+  color: #fff;
+}
+
+table.align-middle>tbody>tr>td {
+  vertical-align: middle;
+}
+
+table.align-middle>tbody>tr>td>ul {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.table>thead>tr.inverted>td {
+  padding: 15px 8px;
+}
+
+.outside-border {
+  border: 1px solid #777;
 }

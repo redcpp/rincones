@@ -1,7 +1,44 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
 
 {% block content %}
-{% for order in orders %}
-<p>{{order}}</p>
-{% endfor %}
+<section>
+    <div class="container">
+        <h2 class="text-center">Historial de compras</h2>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped outside-border align-middle">
+                <thead>
+                    <tr class="inverted">
+                        <td>Productos</td>
+                        <td>Estado</td>
+                        <td>CP</td>
+                        <td>Calle</td>
+                        <td>Total</td>
+                        <td>Factura</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>
+                            <ul class="list-unstyled">
+                                {% for cart_item in order.cart.cartitem_set.all %}
+                                <li>{{ cart_item|lower }} <small>({{ cart_item.quantity }})</small></li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>{{ order.state }}</td>
+                        <td>{{ order.postal_code }}</td>
+                        <td>{{ order.street }}</td>
+                        <td><b>{{ order.total }}</b></td>
+                        <td></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr class="clear big">
+</section>
 {% endblock content %}

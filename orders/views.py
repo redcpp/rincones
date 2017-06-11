@@ -7,7 +7,7 @@ from carts.models import Cart
 from .models import Order
 
 def history(request):
-    orders = Order.objects.filter(user=request.user)
+    orders = Order.objects.filter(user=request.user, finished=True)
     context = {'orders': orders}
     template = 'orders/history.html'
     return render(request, template, context)
@@ -44,7 +44,7 @@ def buy(request, order_id):
             order.save()
             del request.session['cart_id']
             del request.session['items_total']
-            return redirect('carts:cart')
+            return redirect('orders:history')
         except Exception as e:
             pass
 
