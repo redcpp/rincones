@@ -29,7 +29,6 @@ def checkout(request):
 
 @login_required
 def buy(request, order_id):
-    print('order_id', order_id)
     if request.method == 'POST':
         try:
             order = Order.objects.get(order_id=order_id)

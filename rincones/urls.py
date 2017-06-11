@@ -4,6 +4,7 @@ from django.conf.urls.static import static
 
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+
 admin.autodiscover()
 
 urlpatterns = [
@@ -13,6 +14,7 @@ urlpatterns = [
     url(r'', include('products.urls', namespace='products')),
     url(r'', include('carts.urls', namespace='carts')),
     url(r'', include('orders.urls', namespace='orders')),
+    url(r'', include('accounts.urls', namespace='accounts')),
 ]
 
 if settings.DEBUG:

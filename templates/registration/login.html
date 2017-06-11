@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load i18n %}
 
 {% block content %}
 <section><!--form-->
@@ -7,17 +6,17 @@
         <div class="row">
             <div class="col-sm-4 col-sm-offset-1">
                 <h2>Usuario registrado</h2>
-                <form method="post">
+                <form action="{% url "login" %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="id_username">Username:</label>
-                        <input class="form-control" type="text" name="username" autofocus maxlength="254" required id="id_username" />
+                        <label for="id_username">Usuario:</label>
+                        <input placeholder="Usuario" class="form-control" type="text" name="username" autofocus maxlength="254" required id="id_username" />
                     </div>
                     <div class="form-group">
-                        <label for="id_password">Password:</label>
-                        <input class="form-control" type="password" name="password" required id="id_password" />
+                        <label for="id_password">Contraseña:</label>
+                        <input placeholder="Contraseña" class="form-control" type="password" name="password" required id="id_password" />
                     </div>
-                    <p><small>{{ form.non_field_errors }}</small></p>
+                    <p><small style="color: red">{{ form.non_field_errors }}</small></p>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block"><b>Iniciar sesión</b></button>
                     </div>
@@ -28,20 +27,21 @@
             </div>
             <div class="col-sm-4">
                 <h2>Nuevo usuario</h2>
-                <form action="{% url "products:home" %}" method="post">
+                <form action="{% url "accounts:signup" %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="username"></label>
-                        <input class="form-control" type="text" placeholder="Name" required>
+                        <label for="id_username">Nombre de usuario:</label>
+                        <input placeholder="Usuario" class="form-control" type="text" name="username" maxlength="150" autofocus required id="id_username" />
                     </div>
                     <div class="form-group">
-                        <label for="email"></label>
-                        <input class="form-control" type="email" placeholder="Email Address" required>
+                        <label for="id_password1">Contraseña:</label>
+                        <input placeholder="Contraseña" class="form-control" type="password" name="password1" required id="id_password1" />
                     </div>
                     <div class="form-group">
-                        <label for="password"></label>
-                        <input class="form-control" type="password" placeholder="Password" required>
+                        <label for="id_password2">Confirmación de contraseña:</label>
+                        <input placeholder="Confirmación de contraseña" class="form-control" type="password" name="password2" required id="id_password2" />
                     </div>
+                    <p><small style="color: red">{{ form2.errors }}</small></p>
                     <div class="form-group">
                         <button type="submit" class="btn btn-default btn-block"><b>Registrarse</b></button>
                     </div>
