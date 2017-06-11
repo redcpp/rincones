@@ -6,6 +6,12 @@ from products.models import Category
 from carts.models import Cart
 from .models import Order
 
+def history(request):
+    orders = Order.objects.filter(user=request.user)
+    context = {'orders': orders}
+    template = 'orders/history.html'
+    return render(request, template, context)
+
 @login_required
 def checkout(request):
     try:

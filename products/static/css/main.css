@@ -2589,11 +2589,28 @@ hr.big {
   font-weight: bold;
 }
 
-.bot-screen {
-  height: 250px;
+#input {
+  margin-top: 0;
+  border-radius: 0;
+  height: 50px;
+  color: #111;
+}
+
+#response {
+  color: #111;
+  height: 300px;
   border: 1px solid #ccc;
-  border-radius: 5px;
   overflow-y: auto;
   padding: 20px;
-  background-color: rgba(232,234,246 ,.5);
+  background-color: #eee;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+#response li {
+  margin: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  white-space: pre-line;
 }

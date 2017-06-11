@@ -5,11 +5,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 col-centered">
-                <h2 class="text-center">Ayuda</h2>
-                <ul id="MessageList" class="list-unstyled bot-screen"><li>
-                    <p><b>bot:</b> Hey</p>
-                </li></ul>
-                <input type="text" id="NewMessage" placeholder="Type and press enter..." class="form-control">
+                <h2 class="text-center">¡Hola!</h2>
+                <ul id="response" class="list-unstyled bot-screen"></ul>
+                <input type="text" id="input" placeholder="Type and press enter..." class="form-control" autofocus="">
             </div>
         </div>
         <hr class="clear big">
@@ -25,3 +23,46 @@
     </div>
 </section>
 {% endblock content %}
+
+{% block javascript %}
+<script type="text/javascript">
+    var accessToken = "32db4c8365884394a9922fb5675e684c";
+    var baseUrl = "https://api.api.ai/v1/";
+    $(document).ready(function() {
+        $("#input").keypress(function(event) {
+            if (event.which == 13) {
+                event.preventDefault();
+                send();
+            }
+        });
+    });
+    function send() {
+        var text = $("#input").val();
+        setResponse("<b>{0}</b>".format(text));
+        $("#input").val('');
+
+        $.ajax({
+            type: "POST",
+            url: baseUrl + "query?v=20150910",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            headers: {
+                "Authorization": "Bearer " + accessToken
+            },
+            data: JSON.stringify({ query: text, lang: "en", sessionId: "somerandomthing" }),
+            success: function(data) {
+                var response = $.parseJSON(JSON.stringify(data, undefined, 2));
+                setResponse(response.result.fulfillment.messages[0].speech);
+            },
+            error: function() {
+                setResponse("Internal Server Error");
+            }
+        });
+    }
+    function setResponse(val) {
+        $("#response").append("<li><p>{0}</p></li>".format(val));
+        var messageList = document.getElementById('response');
+        messageList.scrollTop = messageList.scrollHeight;
+    }
+</script>
+{% endblock javascript %}
