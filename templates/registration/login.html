@@ -6,7 +6,8 @@
         <div class="row">
             <div class="col-sm-4 col-sm-offset-1">
                 <h2>Usuario registrado</h2>
-                <form action="{% url "login" %}" method="post">
+                {% url 'login' as login_url %}
+                <form action="{% if not login_url in request.get_full_path %}{{ login_url }}{% endif %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="id_username">Usuario:</label>
@@ -27,7 +28,8 @@
             </div>
             <div class="col-sm-4">
                 <h2>Nuevo usuario</h2>
-                <form action="{% url "accounts:signup" %}" method="post">
+                {% url 'accounts:signup' as signup_url %}
+                <form action="{% if not signup_url in request.get_full_path %}{{ signup_url }}{% endif %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="id_username">Nombre de usuario:</label>

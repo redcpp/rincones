@@ -2583,3 +2583,8 @@ hr.big {
     float: none;
     margin: 0 auto;
 }
+
+.btn-warning, .btn-warning:hover {
+  color: #000;
+  font-weight: bold;
+}
