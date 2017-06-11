@@ -49,3 +49,8 @@ def single(request, slug):
     context = {'product': product, 'images': images, 'recomendados': recomendados, 'categories': categories}
     template = 'products/single.html'
     return render(request, template, context)
+
+def contact(request):
+    context = {}
+    template = 'products/contact.html'
+    return render(request, template, context)

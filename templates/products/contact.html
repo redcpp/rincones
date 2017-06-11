@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-centered">
+                <h2 class="text-center">Ayuda</h2>
+                <ul id="MessageList" class="list-unstyled bot-screen"><li>
+                    <p><b>bot:</b> Hey</p>
+                </li></ul>
+                <input type="text" id="NewMessage" placeholder="Type and press enter..." class="form-control">
+            </div>
+        </div>
+        <hr class="clear big">
+        <div class="row text-center">
+            <div class="col-sm-6">
+                <h5><a href="tel://1-555-555-5555"><i class="fa fa-phone"></i> +1 (555) 555-5555</a></h5>
+            </div>
+            <div class="col-sm-6">
+                <h5><a href="mailto://rincones@gmail.com"><i class="fa fa-envelope"></i> rincones@gmail.com</a></h5>
+            </div>
+        </div>
+        <hr class="clear">
+    </div>
+</section>
+{% endblock content %}
