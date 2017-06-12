@@ -128,3 +128,5 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'products', 'static'),
 )
+
+PDF_GENERATOR = os.path.join(BASE_DIR, 'invoice.js')

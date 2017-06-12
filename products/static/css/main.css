@@ -2630,3 +2630,7 @@ table.align-middle>tbody>tr>td>ul {
 .outside-border {
   border: 1px solid #777;
 }
+
+.pdf-icon {
+  max-height: 40px;
+}

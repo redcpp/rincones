@@ -32,7 +32,7 @@
                         <td>{{ order.postal_code }}</td>
                         <td>{{ order.street }}</td>
                         <td><b>{{ order.total }}</b></td>
-                        <td></td>
+                        <td><a href="{{ order.get_factura_url }}"><img class="pdf-icon" src="{% static "images/home/pdf-icon.png" %}" alt=""></a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
