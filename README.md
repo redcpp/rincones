@@ -1,6 +1,13 @@
-# Proyecto final
+# ZetaSigma E-commerce
 
-Básicamente hay que implementar Amazon desde zero!
+## Características del sistema
 
-Suena imposible, pero nada lo es para el buen rincones
+- Descripción, precio, cantidad, imágenes del producto
+- Carrito
+- Usuarios
+- Categorías
+- Buscador
+- Contacto bot-assistant
+- Historial de compras
+- Facturas
 
